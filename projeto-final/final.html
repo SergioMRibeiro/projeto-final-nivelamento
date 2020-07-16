@@ -7,8 +7,9 @@
     </head>
     <body>
         <script>
-            var cont = -1;
+            var cont = 0;
             var lista = [];
+            var repetidos = []
             for(var i = 0; i < 5; i++){
                 var numero = parseInt(prompt('digite numeros positivos'));
                 lista.push(numero);
@@ -20,13 +21,18 @@
             document.write('<br>' + 'menor número: '+ Math.min(lista[0], lista[1], lista[2], lista[3], lista[4]) +'<br><br>');
 
             for(caracter of lista){
-                cont = -1;
+                cont = 0;
                 for(numeroVerificado of lista){
                     if(caracter == numeroVerificado){
                         cont++;
                     }
                 }
-                document.write(`${caracter} repete-se ${cont} vez(es) <br>`);
+                // nesse momento eu tenho a informação de qual numero está se repetindo e quantas vezes ele se repetiu 
+                if (cont >= 2 && repetidos.indexOf(caracter) == -1){
+                    document.write(`${caracter} encontra-se ${cont} vezes <br>`);
+                    repetidos.push(caracter);
+                    }
+                
 
             }
 
